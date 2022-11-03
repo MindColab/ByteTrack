@@ -15,7 +15,7 @@ from yolox.tracker.byte_tracker import BYTETracker
 from yolox.tracking_utils.timer import Timer
 
 
-IMAGE_EXT = [".jpg", ".jpeg", ".webp", ".bmp", ".png"]
+IMAGE_EXT = [".jpg", ".jpeg", ".webp", ".bmp", ".png", ".PNG", ".JPG"]
 
 
 def make_parser():
