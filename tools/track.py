@@ -107,6 +107,7 @@ def make_parser():
     parser.add_argument("--match_thresh", type=float, default=0.9, help="matching threshold for tracking")
     parser.add_argument("--min-box-area", type=float, default=100, help='filter out tiny boxes')
     parser.add_argument("--mot20", dest="mot20", default=False, action="store_true", help="test mot20.")
+    parser.add_argument("--gt_path", dest="gt_path", type=str, required=True, help="Path of gtfiles")
     return parser
 
 
@@ -226,9 +227,12 @@ def main(exp, args, num_gpu):
         gt_type = ''
     print('gt_type', gt_type)
     if args.mot20:
+        #gt_path
         gtfiles = glob.glob(os.path.join('datasets/MOT20/train', '*/gt/gt{}.txt'.format(gt_type)))
     else:
-        gtfiles = glob.glob(os.path.join('datasets/mot/train', '*/gt/gt{}.txt'.format(gt_type)))
+        #gt_path
+        #gtfiles = glob.glob(os.path.join('datasets/mot/train', '*/gt/gt{}.txt'.format(gt_type)))
+        gtfiles = glob.glob(os.path.join(args.gt_path, '*/gt/gt{}.txt'.format(gt_type)))
     print('gt_files', gtfiles)
     tsfiles = [f for f in glob.glob(os.path.join(results_folder, '*.txt')) if not os.path.basename(f).startswith('eval')]
 
