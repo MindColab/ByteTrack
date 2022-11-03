@@ -1,0 +1,17 @@
+2022-10-28 07:37:43.296 | INFO     | __main__:main:316 - Args: Namespace(aspect_ratio_thresh=1.6, camid=0, ckpt='YOLOX_outputs/yolox_x_ablation/latest_ckpt.pth.tar', conf=None, demo='video', device=device(type='cuda'), exp_file='exps/example/mot/yolox_x_ablation.py', experiment_name='yolox_x_ablation', fp16=True, fps=30, fuse=True, match_thresh=0.8, min_box_area=10, mot20=False, name=None, nms=None, path='./videos/palace.mp4', save_result=True, track_buffer=30, track_thresh=0.5, trt=False, tsize=None)
+/home/user/miniconda3/envs/py38/lib/python3.8/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-10-28 07:37:46.013 | INFO     | __main__:main:326 - Model Summary: Params: 99.00M, Gflops: 793.21
+2022-10-28 07:37:46.015 | INFO     | __main__:main:334 - loading checkpoint
+Traceback (most recent call last):
+  File "tools/demo_track.py", line 372, in <module>
+    main(exp, args)
+  File "tools/demo_track.py", line 335, in main
+    ckpt = torch.load(ckpt_file, map_location="cpu")
+  File "/home/user/miniconda3/envs/py38/lib/python3.8/site-packages/torch/serialization.py", line 594, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/home/user/miniconda3/envs/py38/lib/python3.8/site-packages/torch/serialization.py", line 230, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/home/user/miniconda3/envs/py38/lib/python3.8/site-packages/torch/serialization.py", line 211, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: 'YOLOX_outputs/yolox_x_ablation/latest_ckpt.pth.tar'
